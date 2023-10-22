@@ -84,7 +84,7 @@ def compare_and_highlight(html1, html2, similarity_threshold=0.68):
 
     for text_node1 in text_nodes1:
         max_similarity = 0
-        max_similarity_text_node = None
+        # max_similarity_text_node = None
         for text_node2 in text_nodes2:
             vec1 = encode(text_node1)
             vec2 = encode(text_node2)
@@ -93,14 +93,14 @@ def compare_and_highlight(html1, html2, similarity_threshold=0.68):
 
             if similarity > max_similarity:
                 max_similarity = similarity
-                max_similarity_text_node = text_node2
+                # max_similarity_text_node = text_node2
 
         if max_similarity <= similarity_threshold:
             highlight_text_node(text_node1, soup1, "orange")
 
     for text_node2 in text_nodes2:
         max_similarity = 0
-        max_similarity_text_node = None
+        # max_similarity_text_node = None
         for text_node1 in text_nodes1:
             vec2 = encode(text_node2)
             vec1 = encode(text_node1)
@@ -108,7 +108,7 @@ def compare_and_highlight(html1, html2, similarity_threshold=0.68):
 
             if similarity > max_similarity:
                 max_similarity = similarity
-                max_similarity_text_node = text_node1
+                # max_similarity_text_node = text_node1
 
         if max_similarity <= similarity_threshold:
             highlight_text_node(text_node2, soup2, "orange")
